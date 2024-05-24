@@ -10,45 +10,45 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Where the magic happens
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2 # Grabbing the latest and greatest code
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v2 # Unleashing the power of Node.js
       with:
-        node-version: '14'
+        node-version: '14' # Lucky number 14
 
     - name: Install dependencies
-      run: npm install
+      run: npm install # Time for some npm love
 
     - name: Run tests
-      run: npm test
+      run: npm test # Let's see if everything's still working
 
     - name: Build project
-      run: npm run build
+      run: npm run build # Building like there's no tomorrow
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v3 # Sending your masterpiece to GitHub Pages
       with:
         personal_token: ${{ secrets.GH_PAT }}
-        publish_dir: ./build
+        publish_dir: ./build # This is where the magic is stored
 
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
+      uses: docker/setup-buildx-action@v1 # Because we're fancy like that
 
     - name: Login to Docker Hub
-      uses: docker/login-action@v1
+      uses: docker/login-action@v1 # Gaining access to the Docker kingdom
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v2 # Turning your code into a Docker image
       with:
         context: .
-        file: ./Dockerfile
+        file: ./Dockerfile # The secret recipe
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/exam-frontend:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/exam-frontend:latest # Latest and greatest
