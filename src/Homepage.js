@@ -14,7 +14,7 @@ const Homepage = () => {
         <div className="content">
           <AppBar />
           <div className="body-content">
-            <h1> Welcome ManChester</h1>
+            <h1> Welcome Manchester</h1>
             <img src="/34.webp" alt="Center Image" className="center-image" />
           </div>
         </div>
