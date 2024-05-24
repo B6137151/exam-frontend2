@@ -1,12 +1,12 @@
 module.exports = {
   transform: {
-    '^.+\\.[tj]sx?$': 'babel-jest',
+    '^.+\\.jsx?$': 'babel-jest'
   },
   transformIgnorePatterns: [
-    '/node_modules/(?!(axios)/)',
+    '/node_modules/(?!(axios)/)'
   ],
   moduleNameMapper: {
-    '\\.(css|less)$': 'identity-obj-proxy',
+    '\\.(css|less)$': 'identity-obj-proxy'
   },
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jsdom'
 };
